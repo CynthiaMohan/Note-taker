@@ -1,16 +1,9 @@
 {
-    "notes": [
-        {
-            "title": "Hi",
-            "text": "hello world!"
-        },
-        {
-            "title": "dinner",
-            "text": "ppizza"
-        },
-        {
-            "title": "breakfast",
-            "text": "Eggs and bacon"
-        }
-    ]
+  "notes": [
+    {
+      "title": "drink",
+      "text": "tea or coffee",
+      "id": "0"
+    }
+  ]
 }

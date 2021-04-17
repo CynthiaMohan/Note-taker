@@ -32,10 +32,15 @@ function validateNote(notes) {
 }
 
 function createNewNote(body, notesArray) {
-    const notes = body;
-    notesArray.push(notes);
-    console.log(notesArray);
+    const newNote = body;
+    notesArray.push(newNote);
+    fs.writeFileSync(
+        path.join(__dirname, './db/db.json'),
+        JSON.stringify({ notes: notesArray }, null, 2)
+    );
+    return (notesArray);
 }
+
 //API routes
 //GET /api/notes should read the db.json file and return all saved notes as JSON.
 app.get('/api/notes', (req, res) => {
@@ -54,17 +59,17 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, './public/index.html'));
 });
 
-//POST /api/notes should receive a new note to save on the request body, add it to the db.json file, and then return the new note to the client
+// //POST /api/notes should receive a new note to save on the request body, add it to the db.json file, and then return the new note to the client
 app.post('/api/notes', (req, res) => {
     req.body.id = notes.length.toString();
+    console.log(req.body)
     if (!validateNote(req.body)) {
         res.status(400).send('Incorrect Note Format.');
     }
     else {
-        const notes = createNewNote(req.body, notes);
-        res.json(notes);
+        const note = createNewNote(req.body, notes);
+        res.json(note);
     }
-
 });
 
 
