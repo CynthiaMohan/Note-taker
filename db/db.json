@@ -1,9 +1,14 @@
 {
-    "notes": [
-        {
-            "title": "Hi",
-            "text": "Hello World",
-            "id": "0"
-        }
-    ]
+  "notes": [
+    {
+      "title": "brunch",
+      "text": "pancakes",
+      "id": 0
+    },
+    {
+      "title": "lunch",
+      "text": "pasta",
+      "id": "1"
+    }
+  ]
 }

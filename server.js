@@ -18,14 +18,15 @@ let id = 0;
 function checkHighestId(notesArray) {
     let highestId = 0;
     for (let i = 0; i < notesArray.length; i++) {
+        console.log(notesArray[i].id);
         if (notesArray[i].id > highestId) {
             highestId = notesArray[i].id;
         }
         else {
             highestId = notesArray.length;
         }
-
     }
+    return (highestId);
 }
 //Validating format of the users notes
 function validateNote(notes) {
@@ -60,9 +61,6 @@ app.get('/api/notes', (req, res) => {
 app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, './public/notes.html'));
 });
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, './public/index.html'));
-});
 
 //GET * should return the index.html file.
 app.get('*', (req, res) => {
@@ -72,7 +70,7 @@ app.get('*', (req, res) => {
 // //POST /api/notes should receive a new note to save on the request body, add it to the db.json file, and then return the new note to the client
 app.post('/api/notes', (req, res) => {
     let nextId = checkHighestId(notes);
-
+    console.log(nextId);
     req.body.id = nextId.toString();
     console.log(req.body)
     if (!validateNote(req.body)) {
@@ -93,9 +91,13 @@ app.delete('/api/notes/:id', (req, res) => {
             if (err) {
                 throw err;
             }
-            else
+            else {
                 return true;
-        });
+            }
+
+        }
+    );
+    res.json(notes);
 });
 
 
