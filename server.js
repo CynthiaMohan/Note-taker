@@ -18,13 +18,13 @@ let id = 0;
 function checkHighestId(notesArray) {
     let highestId = 0;
     for (let i = 0; i < notesArray.length; i++) {
-        if (notesArray[i].id > notesArray.length) {
+        if (notesArray[i].id > highestId) {
             highestId = notesArray[i].id;
         }
         else {
             highestId = notesArray.length;
         }
-        return highestId;
+
     }
 }
 //Validating format of the users notes
