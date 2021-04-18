@@ -13,13 +13,20 @@ app.use(express.json());
 app.use(express.static('public'));
 
 let id = 0;
-// function filterByQuery(query,notesArray){
-//     let filteredResults=notesArray;
-//     if(query=title){
 
-//     }
-// }
-
+//highest id
+function checkHighestId(notesArray) {
+    let highestId = 0;
+    for (let i = 0; i < notesArray.length; i++) {
+        if (notesArray[i].id > notesArray.length) {
+            highestId = notesArray[i].id;
+        }
+        else {
+            highestId = notesArray.length;
+        }
+        return highestId;
+    }
+}
 //Validating format of the users notes
 function validateNote(notes) {
     if (!notes.title || typeof notes.title !== 'string') {
@@ -61,7 +68,9 @@ app.get('*', (req, res) => {
 
 // //POST /api/notes should receive a new note to save on the request body, add it to the db.json file, and then return the new note to the client
 app.post('/api/notes', (req, res) => {
-    req.body.id = notes.length.toString();
+    let nextId = checkHighestId(notes);
+
+    req.body.id = nextId.toString();
     console.log(req.body)
     if (!validateNote(req.body)) {
         res.status(400).send('Incorrect Note Format.');
@@ -70,6 +79,20 @@ app.post('/api/notes', (req, res) => {
         const note = createNewNote(req.body, notes);
         res.json(note);
     }
+});
+app.delete('/api/notes/:id', (req, res) => {
+    res.send(`Request to delete req param ${req.params.id} confirmed`);
+    notes.splice(req.params.id, 1);
+    console.log(notes);
+    fs.writeFileSync(
+        path.join(__dirname, './db/db.json'),
+        JSON.stringify({ notes }), err => {
+            if (err) {
+                throw err;
+            }
+            else
+                return true;
+        });
 });
 
 

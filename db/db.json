@@ -1,24 +1,19 @@
 {
   "notes": [
     {
-      "title": "drink",
-      "text": "tea or coffee",
+      "title": "hello world",
+      "text": "hi",
       "id": "0"
     },
     {
-      "title": "hi",
-      "text": "hello world",
+      "title": "lunch",
+      "text": "salad",
       "id": "1"
     },
     {
-      "title": "lkm;m",
-      "text": "km;lkn;",
+      "title": "lunch",
+      "text": "salad",
       "id": "2"
-    },
-    {
-      "title": "hjkgjgkkkh",
-      "text": "hkjghjghg",
-      "id": "3"
     }
   ]
 }
