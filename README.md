@@ -6,21 +6,26 @@ This is an application that can be used to write and save notes.It uses an Expre
 ## Table of Contents 
 
 * [Installation](#installation)
-* [Output](#HTMLPageGenerated)
+* [Output](#Output)
 * [Questions](#questions)
 
 ## Installation
-Run `npm install` to install the required npm packages-express. <br/>
-To use locally, run `npm run start:dev`.<br/>
-Open the app in your browser using `http:localhost:3001`
+* Run `npm install` to install the required npm packages-express. <br/>
+* To use locally, run `npm run start:dev`.<br/>
+* Open the app in your browser using `http:localhost:3001`.<br/><br/>
+You can also view the deployed website here:<br/>
+https://express-note-taker-by-cynthia.herokuapp.com/
 
 <br/>
-View the video walk through here:
+View the video walk through here: 
+
+https://youtu.be/m6hoU5parnM/
 
 
 <br/>
+<br/>
 
-## HTMLPageGenerated
+## Output
 
 ![Output1](./public/assets/images/outputss1.png)
 ![Output2](./public/assets/images/outputss2.png)
