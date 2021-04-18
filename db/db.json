@@ -1,19 +1,9 @@
 {
-  "notes": [
-    {
-      "title": "hello world",
-      "text": "hi",
-      "id": "0"
-    },
-    {
-      "title": "lunch",
-      "text": "salad",
-      "id": "1"
-    },
-    {
-      "title": "lunch",
-      "text": "salad",
-      "id": "2"
-    }
-  ]
+    "notes": [
+        {
+            "title": "Hi",
+            "text": "Hello World",
+            "id": "0"
+        }
+    ]
 }
